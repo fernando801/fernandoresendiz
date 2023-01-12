@@ -1,0 +1,31 @@
+---
+import { Icon } from "astro-icon";
+import ThemeToggle from "./ThemeToggle.astro";
+---
+
+<header class="">
+    <div
+        class="container max-w-3xl p-4 mx-auto flex gap-2 sm:gap-4 items-center justify-between"
+    >
+        <div class="flex items-center gap-2 sm:gap-4">
+            <div class="rounded-full aspect-square h-12 overflow-hidden">
+                <img
+                    class="object-cover"
+                    src="/images/profile_image.jpg"
+                    alt="Profile Image"
+                />
+            </div>
+            <h1 class="text-xl">Fernando Reséndiz</h1>
+        </div>
+        <nav class="flex items-center gap-2 sm:gap-4">
+            <ul class="gap-4 hidden sm:flex">
+                <li><a class="hover:underline" href="/">Home</a></li>
+                <li><a class="hover:underline" href="/">Projects</a></li>
+                <li><a class="hover:underline" href="/">Contact</a></li>
+                <li><a class="hover:underline" href="/">Blog</a></li>
+            </ul>
+            <Icon class="sm:hidden h-8 siu" name="menu_line" />
+            <ThemeToggle />
+        </nav>
+    </div>
+</header>
