@@ -3,26 +3,20 @@ import { Icon } from "astro-icon";
 import ThemeToggle from "./ThemeToggle.astro";
 ---
 
-<header class="">
+<header>
     <div
-        class="container max-w-3xl p-4 mx-auto flex gap-2 sm:gap-4 items-center justify-between"
+        class="container max-w-3xl p-4 md:px-0 mx-auto flex gap-2 sm:gap-4 items-center justify-between"
     >
-        <div class="flex items-center gap-2 sm:gap-4">
-            <div class="rounded-full aspect-square h-12 overflow-hidden">
-                <img
-                    class="object-cover"
-                    src="/images/profile_image.jpg"
-                    alt="Profile Image"
-                />
-            </div>
-            <h1 class="text-lg sm:text-xl">Fernando Reséndiz</h1>
-        </div>
+        <h1 class="text-xl text-rpd-love dark:text-rp-foam md:text-2xl">
+            Fernando Reséndiz
+        </h1>
+
         <nav
-            class="relative self-stretch flex items-center gap-3 sm:gap-4 group"
+            class="relative py-1 self-stretch flex items-center gap-3 sm:gap-4 group"
         >
             <ul
                 id="nav"
-                class="transition sm:transition-none duration-75 ease-linear origin-top-right opacity-0 sm:opacity-100 scale-75 sm:scale-100 min-w-[12rem] sm:bg-transparent sm:dark:bg-transparent border-rpd-highlightLow dark:border-rp-highlightLow border-2 sm:border-0 rounded bg-rpd-surface dark:bg-rp-surface sm:gap-4 absolute sm:relative sm:top-0 right-0 top-full sm:flex"
+                class="transition sm:transition-none duration-75 ease-linear origin-top-right opacity-0 sm:opacity-100 scale-75 sm:scale-100 -z-50 sm:z-0 min-w-[12rem] sm:bg-transparent sm:dark:bg-transparent border-rpd-highlightLow dark:border-rp-highlightLow border-2 sm:border-0 rounded bg-rpd-surface dark:bg-rp-surface sm:gap-4 absolute sm:relative sm:top-0 right-0 top-full sm:flex"
             >
                 <li>
                     <a class="hover:underline block sm:inline p-2" href="/"
@@ -62,6 +56,7 @@ import ThemeToggle from "./ThemeToggle.astro";
     const handleNavToggle = () => {
         nav.classList.toggle("scale-75");
         nav.classList.toggle("opacity-0");
+        nav.classList.toggle("-z-50");
     };
 
     document

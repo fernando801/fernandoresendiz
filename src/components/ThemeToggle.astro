@@ -21,11 +21,9 @@ import { Icon } from "astro-icon";
             typeof localStorage !== "undefined" &&
             localStorage.getItem("theme")
         ) {
-            console.log("siuuuu is localStorage");
             return localStorage.getItem("theme") as string;
         }
         if (matchMedia("(prefers-color-scheme: dark)")) {
-            console.log("siuuuu is dark");
             return "dark";
         }
         return "light";
