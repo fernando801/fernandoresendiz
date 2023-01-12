@@ -22,7 +22,7 @@ import ThemeToggle from "./ThemeToggle.astro";
         >
             <ul
                 id="nav"
-                class="scale-0 sm:scale-100 min-w-[12rem] sm:bg-transparent sm:dark:bg-transparent border-rpd-highlightLow dark:border-rp-highlightLow border-2 sm:border-0 rounded flex-col sm:flex-row bg-rpd-surface dark:bg-rp-surface sm:gap-4 absolute sm:relative sm:top-0 right-0 top-full flex"
+                class="transition sm:transition-none duration-75 ease-linear origin-top-right opacity-0 sm:opacity-100 scale-75 sm:scale-100 min-w-[12rem] sm:bg-transparent sm:dark:bg-transparent border-rpd-highlightLow dark:border-rp-highlightLow border-2 sm:border-0 rounded bg-rpd-surface dark:bg-rp-surface sm:gap-4 absolute sm:relative sm:top-0 right-0 top-full sm:flex"
             >
                 <li>
                     <a class="hover:underline block sm:inline p-2" href="/"
@@ -60,7 +60,8 @@ import ThemeToggle from "./ThemeToggle.astro";
     const nav = document.getElementById("nav")!;
 
     const handleNavToggle = () => {
-        nav.classList.toggle("scale-0");
+        nav.classList.toggle("scale-75");
+        nav.classList.toggle("opacity-0");
     };
 
     document
