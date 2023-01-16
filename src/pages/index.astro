@@ -23,6 +23,7 @@ let projects = await Astro.glob<Project>("./projects/*.md");
                         format="avif"
                         src="/images/profile_image.jpg"
                         alt="Profile Image"
+                        loading="eager"
                     />
                 </div>
                 <div class="text-center sm:text-left">
