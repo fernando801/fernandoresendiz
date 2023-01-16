@@ -18,14 +18,14 @@ const frontmatter = project.frontmatter;
     <div class="relative">
         <Image
             src={frontmatter.img.url}
-            width={480}
+            width={640}
             aspectRatio="16:9"
             alt={frontmatter.img.alt}
             format="webp"
         />
         {/* <img src={frontmatter.img.url} alt={frontmatter.img.alt} /> */}
         <div
-            class="flex opacity-0 group-hover:opacity-100 transition-opacity duration-75 ease-in justify-center items-center gap-4 absolute bg-rpd-highlightMed/80 dark:bg-rp-highlightMed/80 top-0 right-0 bottom-0 left-0"
+            class="flex opacity-0 group-hover:opacity-100 transition-opacity duration-75 ease-in justify-center items-center gap-4 absolute bg-rpd-highlightMed/80 dark:bg-rp-highlightMed/80 inset-0"
         >
             {
                 frontmatter.repo && (
@@ -59,7 +59,7 @@ const frontmatter = project.frontmatter;
     <ul class="flex gap-2 px-4 py-1">
         {
             frontmatter.technologies.map((technologie) => (
-                <li class="text-xs px-2 rounded-full bg-rpd-highlightMed dark:bg-rp-highlightMed">
+                <li class="text-xs font-light px-2 rounded-full bg-rpd-highlightMed dark:bg-rp-highlightMed">
                     {technologie}
                 </li>
             ))
