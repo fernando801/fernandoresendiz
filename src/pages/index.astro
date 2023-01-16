@@ -1,5 +1,6 @@
 ---
 import type { Project } from "../types";
+import { Image } from "@astrojs/image/components";
 import Layout from "../layouts/Layout.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 
@@ -15,8 +16,11 @@ let projects = await Astro.glob<Project>("./projects/*.md");
                 <div
                     class="rounded-full aspect-square shrink-0 h-44 sm:h-56 md:h-64 overflow-hidden"
                 >
-                    <img
+                    <Image
                         class="h-full object-cover"
+                        width={256}
+                        aspectRatio={1}
+                        format="avif"
                         src="/images/profile_image.jpg"
                         alt="Profile Image"
                     />
