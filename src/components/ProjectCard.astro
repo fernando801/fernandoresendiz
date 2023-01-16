@@ -1,0 +1,61 @@
+---
+import type { MarkdownInstance } from "astro";
+import type { Project } from "../types";
+import { Icon } from "astro-icon";
+
+export interface Props {
+    project: MarkdownInstance<Project>;
+}
+
+const { project } = Astro.props;
+const frontmatter = project.frontmatter;
+---
+
+<article
+    class="hover:scale-105 group transition-transform duration-75 ease-linear bg-rpd-surface shadow dark:bg-rp-surface w-full max-w-[480px] md:max-w-[340px] overflow-hidden rounded-2xl"
+>
+    <div class="relative">
+        <img src={frontmatter.img.url} alt={frontmatter.img.alt} />
+        <div
+            class="flex opacity-0 group-hover:opacity-100 transition-opacity duration-75 ease-in justify-center items-center gap-4 absolute bg-rpd-highlightMed/80 dark:bg-rp-highlightMed/80 top-0 right-0 bottom-0 left-0"
+        >
+            {
+                frontmatter.repo && (
+                    <a
+                        href={frontmatter.repo}
+                        target="_blank"
+                        class="hover:underline"
+                    >
+                        <Icon name="github_fill" class="h-8 mx-auto" />
+                        <p>source</p>
+                    </a>
+                )
+            }
+            {
+                frontmatter.demo && (
+                    <a
+                        href={frontmatter.demo}
+                        target="_blank"
+                        class="hover:underline"
+                    >
+                        <Icon name="external_link_line" class="h-8 mx-auto" />
+                        <p>demo</p>
+                    </a>
+                )
+            }
+        </div>
+    </div>
+    <h3 class="px-4 mt-4 font-semibold">
+        {frontmatter.name}
+    </h3>
+    <ul class="flex gap-2 px-4 py-1">
+        {
+            frontmatter.technologies.map((technologie) => (
+                <li class="text-xs px-2 rounded-full bg-rpd-highlightMed dark:bg-rp-highlightMed">
+                    {technologie}
+                </li>
+            ))
+        }
+    </ul>
+    <p class="p-4">{frontmatter.description}</p>
+</article>

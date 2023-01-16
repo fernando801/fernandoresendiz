@@ -1,17 +1,7 @@
 ---
+import type { Project } from "../types";
 import Layout from "../layouts/Layout.astro";
-
-interface Project {
-    name: string;
-    description: string;
-    img: {
-        url: string;
-        alt: string;
-    };
-    demo: string;
-    repo: string;
-    technologies: Array<string>;
-}
+import ProjectCard from "../components/ProjectCard.astro";
 
 let projects = await Astro.glob<Project>("./projects/*.md");
 ---
@@ -48,29 +38,12 @@ let projects = await Astro.glob<Project>("./projects/*.md");
                 </div>
             </div>
         </section>
-        <section id="featured_projects">
+        <section id="featured_projects" class="mb-8">
             <h2 class="text-center md:text-4xl pb-4 sm:pb-8 md:pb-12n">
                 Projects
             </h2>
             <div class="flex flex-wrap justify-center gap-6 md:gap-8">
-                {
-                    projects.map((project) => (
-                        <article class="hover:scale-105 transition-transform duration-75 ease-linear bg-rpd-surface shadow dark:bg-rp-surface w-full max-w-[480px] md:max-w-[340px] overflow-hidden rounded-2xl">
-                            <div>
-                                <img
-                                    src={project.frontmatter.img.url}
-                                    alt={project.frontmatter.img.alt}
-                                />
-                            </div>
-                            <h3 class="px-4 mt-4">
-                                {project.frontmatter.name}
-                            </h3>
-                            <p class="px-4 text-sm">
-                                {project.frontmatter.description}
-                            </p>
-                        </article>
-                    ))
-                }
+                {projects.map((project) => <ProjectCard project={project} />)}
             </div>
         </section>
     </main>
